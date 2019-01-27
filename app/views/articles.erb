@@ -1,0 +1,9 @@
+<<h1>Articles</h1>
+
+<<ul>
+<% @articles,each do |article| %>
+  <li><<strong>Title: <%= article.title %></strong></li>
+  <li><%= article.content %></li>
+  <li>Truth Pseudo-Score: <%= article.pseudo_score %></li>
+<% end %>
+</ul>
