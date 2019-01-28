@@ -16,9 +16,14 @@ class ApplicationController < Sinatra::Base
   # get all the articles
   get '/articles' do
       @articles = Article.all
-
+      binding.pry
       # render to the page
-      erb :articles
-    end
+      erb :index
+  end
+
+  # find an article by its id using dynamic assignment
+  get 'articles/:id' do
+    binding.pry
+  end
 
 end
