@@ -2,4 +2,18 @@
 
 <h1><%= @article.title %></h1>
 
-<p><%= @article.content %></p>
+<p><%= @article.content %></p> # CHANGE TO CONTENT PREVIEW WITH LINK TO DISPLAY ALL CONTENT
+
+# INSERT PSEUDO-SCORE -- A RANDOMIZED PERCENTAGE BETWEEN 1..100
+
+# NEED DELETE FORM OR LINK
+
+<form action="/articles/<%= @article.id %>/delete" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+
+<form action="/articles/<%= @article.id %>/edit" method="GET">
+  <input id="hidden" type="hidden" name="_method" value="edit">
+  <input type="submit" value="edit">
+</form>

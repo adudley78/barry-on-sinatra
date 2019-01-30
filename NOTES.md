@@ -34,6 +34,8 @@ USER EXPERIENCE
 7. on dashboard, user can view, edit, delete articles, or click to add more + log out and change profile and password
 8. if user logs out, taken to homepage
 
+---
+
 ROUTES
 
 - dynamic below static

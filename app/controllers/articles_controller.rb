@@ -4,14 +4,14 @@ class ArticlesController < ApplicationController
   get '/articles' do
       @articles = Article.all
       # render to the articles index page
-      erb :'articles/index'
+      erb :'/articles/index'
   end
 
   # articles/new action
   get '/articles/new' do # route / url
 
     # render a new post form
-    erb :'articles/new'
+    erb :'/articles/new'
   end
 
   # find an article by its id using dynamic assignment with articles show action
@@ -20,33 +20,40 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     #=> needs to show articles on user dashboard associated to user id
     # render the articles show template
-    erb :'articles/show'
+    erb :'/articles/show'
   end
 
 
   # ARTICLE POST ACTION GOES HERE
   post '/articles' do
     article = Article.create(title: params[:article][:title], content: params[:article][:content])
-    # params[:article].each do |article_data|
-    # article = Article.new(article_data)
-    # article.save
-    # end
-    redirect to "/articles/#{article.id}"
+
+    redirect to "/articles"
   end
 
   # ARTICLE LOAD FORM TO EDIT ACTION
-  # get '/articles/:id/edit' do
+  get '/articles/:id/edit' do
+    @article = Article.find(params[:id])
+    # render the articles edit form
+    erb :'/articles/edit'
+  end
 
-  #end
+  # ARTICLE EDIT/UPDATE ACTION
+  patch '/articles/:id' do
+    @article = Article.find(params[:id])
+    @article.title = params[:article][:title]
+    @article.content = params[:article][:content]
+    @article.save
 
-  # ARTICLE UPDATE ACTION
-  # post 'articles/:id' do
+    redirect to '/articles'
+  end
 
-  # end
+  # CA DELETE ARTICLE ACTION
+  delete '/articles/:id/delete' do
+    @article = Article.find(params[:id])
+    @article.delete
 
-  # CA DELETE ARTICLE
-  # post 'articles/:id/delete' do
-
-  # end
+    redirect to '/articles'
+end
 
 end

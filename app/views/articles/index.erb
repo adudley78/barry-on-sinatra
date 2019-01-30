@@ -1,9 +1,10 @@
 <h1>Articles</h1>
 
   <ul>
-    <% @articles.each_with_index do |article, i| %>
-      <li><%= i + 1 %>.</li>
-      <li><strong>Title: <%= article.title %></strong></li>
+    <% @articles.each do |article| %>
+      <br>
+      <li><%= article.id %>. <strong>Title: <%= article.title %></strong></li>
+      <br>
       <li>Content: <%= article.content %></li>
     <% end %>
   </ul>
