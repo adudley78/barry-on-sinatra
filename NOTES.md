@@ -33,3 +33,7 @@ USER EXPERIENCE
 6. if yes, back to form, if no, taken to dashboard with Gmail-style view
 7. on dashboard, user can view, edit, delete articles, or click to add more + log out and change profile and password
 8. if user logs out, taken to homepage
+
+ROUTES
+
+- dynamic below static
