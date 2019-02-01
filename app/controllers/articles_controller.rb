@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   # get all the articles with the articles index action
   get '/articles' do
     # binding.pry
-    if session[:user_id]
+    if logged_in?
 
       @user = User.find_by(id: session[:user_id])
 
@@ -44,8 +44,13 @@ class ArticlesController < ApplicationController
   # ARTICLE LOAD FORM TO EDIT ACTION
   get '/articles/:id/edit' do
     @article = Article.find(params[:id])
+    # if @article.user.id == current_user.id
+
+    # else
+    #   redirect '/articles'
+    # end
     # render the articles edit form
-    erb :'/articles/edit'
+      erb :'/articles/edit'
   end
 
   # ARTICLE EDIT/UPDATE ACTION
