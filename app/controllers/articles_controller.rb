@@ -2,12 +2,14 @@ class ArticlesController < ApplicationController
 
   # get all the articles with the articles index action
   get '/articles' do
-    binding.pry
+    # binding.pry
     if session[:user_id]
+
+      @user = User.find_by(id: session[:user_id])
 
       @articles = Article.all
       # render all article instances to the articles index page
-      erb :'/articles'
+      erb :'/articles/index'
     else
       redirect '/login'
     end
@@ -25,7 +27,7 @@ class ArticlesController < ApplicationController
   # :id is a route variable
   get '/articles/:id' do
     @article = Article.find(params[:id])
-    #=> needs to show articles on user dashboard associated to user id
+    #=> show articles on user dashboard associated to user id
     # render the articles show template
     erb :'/articles/show'
   end

@@ -13,8 +13,9 @@ class SessionsController < ApplicationController
     # authenticate the user using the submitted password
     if user && user.authenticate(params[:password])
       # log in the user
-      binding.pry
+      # binding.pry
       session[:user_id] = user.id
+      # binding.pry
       redirect to '/articles'
     else
       # change to custom wrong login credentials view
