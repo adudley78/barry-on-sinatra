@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190127224332) do
+ActiveRecord::Schema.define(version: 20190201140855) do
 
   create_table "articles", force: :cascade do |t|
-    t.text   "title"
-    t.text   "content"
-    t.text   "pseudo_score"
-    t.string "user_id"
+    t.text    "title"
+    t.text    "content"
+    t.text    "pseudo_score"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

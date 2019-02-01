@@ -11,3 +11,5 @@ run ApplicationController
 # mount additional controllers
 use ArticlesController
 use UsersController
+use SessionsController
+# use Rack::Session::Cookie

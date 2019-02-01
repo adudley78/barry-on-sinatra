@@ -1,17 +1,24 @@
 class ArticlesController < ApplicationController
 
-  # get all the articles with articles index action
+  # get all the articles with the articles index action
   get '/articles' do
+    binding.pry
+    if session[:user_id]
+
       @articles = Article.all
-      # render to the articles index page
-      erb :'/articles/index'
+      # render all article instances to the articles index page
+      erb :'/articles'
+    else
+      redirect '/login'
+    end
   end
 
   # articles/new action
   get '/articles/new' do # route / url
+    # if if_not_logged_in
 
     # render a new post form
-    erb :'/articles/new'
+      erb :'/articles/new'
   end
 
   # find an article by its id using dynamic assignment with articles show action
@@ -27,7 +34,8 @@ class ArticlesController < ApplicationController
   # ARTICLE POST ACTION GOES HERE
   post '/articles' do
     article = Article.create(title: params[:article][:title], content: params[:article][:content])
-
+    # create Article to User association here, see Pirates lab
+    # article.user
     redirect to "/articles"
   end
 
