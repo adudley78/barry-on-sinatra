@@ -23,6 +23,21 @@ class ArticlesController < ApplicationController
       erb :'/articles/new'
   end
 
+  # ARTICLE POST ACTION GOES HERE
+  post '/articles' do
+    article = Article.create(title: params[:article][:title], content: params[:article][:content])
+    # create Article to User association here, see Pirates lab
+    # params[:article][:user].each do |user_data|
+    # user = User.new(user_data)
+
+    # Where is this going to get the user data of the user currently logged in?
+    # binding.pry
+    article.user = User.find_by(id: session[:user_id])
+    article.save
+    # end
+    redirect "/users/analysis"
+  end
+
   # find an article by its id using dynamic assignment with articles show action
   # :id is a route variable
   get '/articles/:id' do
@@ -30,15 +45,6 @@ class ArticlesController < ApplicationController
     #=> show articles on user dashboard associated to user id
     # render the articles show template
     erb :'/articles/show'
-  end
-
-
-  # ARTICLE POST ACTION GOES HERE
-  post '/articles' do
-    article = Article.create(title: params[:article][:title], content: params[:article][:content])
-    # create Article to User association here, see Pirates lab
-    # article.user
-    redirect to "/articles"
   end
 
   # ARTICLE LOAD FORM TO EDIT ACTION

@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
 
+  get '/users/dashboard' do
+      @user = User.find(session[:user_id])
+
+      erb :'/users/dashboard'
+  end
+
+  get '/users/analysis' do
+      @user = User.find(session[:user_id])
+
+      erb :'/users/analysis'
+  end
+
   # get '/users/:slug' do
   #   @user = User.find_by_slug(params[:slug])
   #   erb :'users/show'

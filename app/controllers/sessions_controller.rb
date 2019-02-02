@@ -16,15 +16,17 @@ class SessionsController < ApplicationController
       # binding.pry
       session[:user_id] = user.id
       # binding.pry
-      redirect to '/articles'
+      redirect to '/users/dashboard'
     else
       # change to custom wrong login credentials view
       redirect '/login'
     end
   end
 
-  get '/logout' do
+  get '/sessions/logout' do
     session.clear
+
+    redirect '/'
   end
 
 end

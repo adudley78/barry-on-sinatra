@@ -15,6 +15,11 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+  get "/about" do
+
+    erb :about
+  end
+
   helpers do
     def logged_in?
       session[:user_id]

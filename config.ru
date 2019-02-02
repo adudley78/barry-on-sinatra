@@ -12,4 +12,5 @@ run ApplicationController
 use ArticlesController
 use UsersController
 use SessionsController
+use RegistrationController
 # use Rack::Session::Cookie
