@@ -34,19 +34,14 @@ class ArticlesController < ApplicationController
   # ARTICLE POST ACTION GOES HERE
   post '/articles' do
     if logged_in?
-      if params[:content] == ""
+      @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+      @article.user = User.find_by(id: session[:user_id])
+      @article.save
 
-        redirect to "/articles/new"
-      else
-        @article = Article.create(title: params[:article][:title], content: params[:article][:content])
-        @article.user = User.find_by(id: session[:user_id])
-        @article.save
-
-        redirect to '/users/analysis'
-      end
-      else
+      redirect to '/users/analysis'
+    else
       redirect to '/login'
-    end
+  end
     # create Article to User association here, see Pirates lab
     # params[:article][:user].each do |user_data|
     # user = User.new(user_data)
@@ -62,10 +57,14 @@ class ArticlesController < ApplicationController
   # find an article by its id using dynamic assignment with articles show action
   # :id is a route variable
   get '/articles/:id' do
-    @article = Article.find(params[:id])
+    if logged_in?
+      @article = Article.find(params[:id])
     #=> show articles on user dashboard associated to user id
     # render the articles show template
-    erb :'/articles/show'
+      erb :'/articles/show'
+    else
+      erb :'/articles/error'
+    end
   end
 
   # ARTICLE LOAD FORM TO EDIT ACTION
@@ -82,20 +81,28 @@ class ArticlesController < ApplicationController
 
   # ARTICLE EDIT/UPDATE ACTION
   patch '/articles/:id' do
-    @article = Article.find(params[:id])
-    @article.title = params[:article][:title]
-    @article.content = params[:article][:content]
-    @article.save
+    if logged_in?
+      @article = Article.find(params[:id])
+      @article.title = params[:article][:title]
+      @article.content = params[:article][:content]
+      @article.save
 
-    redirect to '/users/dashboard'
+      redirect to '/users/dashboard'
+    else
+      erb :'/articles/error'
+    end
   end
 
   # CA DELETE ARTICLE ACTION
   delete '/articles/:id/delete' do
-    @article = Article.find(params[:id])
-    @article.delete
+    if logged_in?
+      @article = Article.find(params[:id])
+      @article.delete
 
-    redirect to '/users/dashboard'
+      redirect to '/users/dashboard'
+    else
+      erb :'/articles/error'
+    end
   end
 
 end
