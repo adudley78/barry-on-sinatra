@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
     @article.content = params[:article][:content]
     @article.save
 
-    redirect to '/articles'
+    redirect to '/users/dashboard'
   end
 
   # CA DELETE ARTICLE ACTION
@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.delete
 
-    redirect to '/articles'
+    redirect to '/users/dashboard'
 end
 
 end
