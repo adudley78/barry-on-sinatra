@@ -13,8 +13,15 @@
     <br>
     <li>Pseudo-Score: <%= pseudo_score_randomizer %>%</li>
     <br>
-    <a href="/articles/<%= article.id %>/edit">Edit</a>
-    <a href="/articles/<%= article.id %>/delete">Delete</a>
+    <form action="/articles/<%= article.id %>/edit" method="GET">
+      <input id="hidden" type="hidden" name="_method" value="GET">
+      <button type="submit" value="submit">Edit</button>
+    </form>
+    <br>
+    <form onsubmit="return confirm('Are you sure you want to delete the following note?')" action="/articles/<%= article.id %>/delete" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button type="submit" value="submit">Delete</button>
+    </form>
     <br>
     <!-- LINK TO EDIT THIS ARTICLE, LINK TO DELETE THIS ARTICLE -->
   <% end %>

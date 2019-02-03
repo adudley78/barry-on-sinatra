@@ -15,27 +15,48 @@ class ArticlesController < ApplicationController
     end
   end
 
+  get '/articles/error' do
+
+    erb :'/articles/error'
+  end
+
   # articles/new action
   get '/articles/new' do # route / url
-    # if if_not_logged_in
+    if logged_in?
 
     # render a new post form
       erb :'/articles/new'
+    else
+      erb :'/articles/error'
+    end
   end
 
   # ARTICLE POST ACTION GOES HERE
   post '/articles' do
-    @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+    if logged_in?
+      if params[:content] == ""
+
+        redirect to "/articles/new"
+      else
+        @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+        @article.user = User.find_by(id: session[:user_id])
+        @article.save
+
+        redirect to '/users/analysis'
+      end
+      else
+      redirect to '/login'
+    end
     # create Article to User association here, see Pirates lab
     # params[:article][:user].each do |user_data|
     # user = User.new(user_data)
 
     # Where is this going to get the user data of the user currently logged in?
     # binding.pry
-    @article.user = User.find_by(id: session[:user_id])
-    @article.save
+
+
     # binding.pry
-    redirect "/users/analysis"
+
   end
 
   # find an article by its id using dynamic assignment with articles show action
@@ -75,6 +96,6 @@ class ArticlesController < ApplicationController
     @article.delete
 
     redirect to '/users/dashboard'
-end
+  end
 
 end

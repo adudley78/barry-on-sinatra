@@ -4,10 +4,10 @@
   <input id="hidden" type="hidden" name="_method" value="PATCH">
 
   <label for="article_title">Title</label>
-  <input type="text" id="article_title" name="article[title]"></input>
+  <input type="text" id="article_title" name="article[title]" value="<%= @article.title %>"></input>
 
   <label for="article_content">Content</label>
-  <input type="text" id="article_content" name="article[content]"></input>
+  <input type="text" id="article_content" name="article[content]" value="<%= @article.content %>"></input>
 
   <input type="submit" value="submit">Submit</input>
 
