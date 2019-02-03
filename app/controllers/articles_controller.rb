@@ -34,13 +34,18 @@ class ArticlesController < ApplicationController
   # ARTICLE POST ACTION GOES HERE
   post '/articles' do
     if logged_in?
-      @article = Article.create(title: params[:article][:title], content: params[:article][:content])
-      @article.user = User.find_by(id: session[:user_id])
-      @article.save
+      if params[:article][:content] == ""
 
-      redirect to '/users/analysis'
+        redirect to '/articles/new'
+      else
+        @article = Article.create(title: params[:article][:title], content: params[:article][:content])
+        @article.user = User.find_by(id: session[:user_id])
+        @article.save
+
+        redirect to '/users/analysis'
+      end
     else
-      redirect to '/login'
+    redirect to '/login'
   end
     # create Article to User association here, see Pirates lab
     # params[:article][:user].each do |user_data|

@@ -18,7 +18,7 @@
       <button type="submit" value="submit">Edit</button>
     </form>
     <br>
-    <form onsubmit="return confirm('Are you sure you want to delete the following note?')" action="/articles/<%= article.id %>/delete" method="POST">
+    <form onsubmit="return confirm('Are you sure you want to delete this article?')" action="/articles/<%= article.id %>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <button type="submit" value="submit">Delete</button>
     </form>
