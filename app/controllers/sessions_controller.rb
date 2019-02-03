@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
       # log in the user
       # binding.pry
       session[:user_id] = user.id
-      # binding.pry
       redirect to '/users/dashboard'
+
     else
       # change to custom wrong login credentials view
       redirect '/login'

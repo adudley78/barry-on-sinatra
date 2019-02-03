@@ -1,9 +1,23 @@
 <h1>Welcome to your dashboard, <%= @user.username %>!</h1>
 
-<h2><a href="/articles/new">Click here to submit more articles for me to analyze.</a></h2>
+<h2><a href="/articles/new">Click here to submit more articles for me to pseudo-analyze.</a></h2>
 
-<h2>Here are the articles I've already analyzed for you:</h2>
+<h2>Here are the articles you've submitted to be analyzed:</h2>
 
-<!-- puts out a list of all articles this user has submitted -->
+<ul>
+  <% @user.articles.each do |article| %>
+    <br>
+    <li><strong>Title: <%= article.title %></strong></li>
+    <br>
+    <li>Content: <%= article.content %></li>
+    <br>
+    <li>Pseudo-Score: <%= pseudo_score_randomizer %>%</li>
+    <br>
+    <!-- LINK TO EDIT THIS ARTICLE, LINK TO DELETE THIS ARTICLE -->
+  <% end %>
+</ul>
 
+<!-- enable editing and deleting for each article -->
+
+<br>
 <a href="/sessions/logout">Log Out</a>

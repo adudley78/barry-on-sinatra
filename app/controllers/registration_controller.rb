@@ -10,7 +10,7 @@ class RegistrationController < ApplicationController
     user.save
     session[:user_id] = user.id
 
-    redirect '/users/dashboard'
+    redirect 'users/dashboard'
   end
 
 end

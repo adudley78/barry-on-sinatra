@@ -25,16 +25,16 @@ class ArticlesController < ApplicationController
 
   # ARTICLE POST ACTION GOES HERE
   post '/articles' do
-    article = Article.create(title: params[:article][:title], content: params[:article][:content])
+    @article = Article.create(title: params[:article][:title], content: params[:article][:content])
     # create Article to User association here, see Pirates lab
     # params[:article][:user].each do |user_data|
     # user = User.new(user_data)
 
     # Where is this going to get the user data of the user currently logged in?
     # binding.pry
-    article.user = User.find_by(id: session[:user_id])
-    article.save
-    # end
+    @article.user = User.find_by(id: session[:user_id])
+    @article.save
+    # binding.pry
     redirect "/users/analysis"
   end
 

@@ -22,32 +22,18 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      session[:user_id]
+      !!current_user
     end
 
     def current_user
       # use memoization so not necessary to access database every time method is called
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
-
   end
 
-
-  # controllers pass data to the view with instance variables
-
-  # helpers do
-  #
-  #   def current_user
-  #     User.find_by(session[:username]) # username or user_id foreign key?
-  #   end
-  #
-  #   def logged_in?
-  #     !!current_user
-  #   end
-  #
-  #   def if_not_logged_in # need argument of associated user_id
-  #     redirect '/home' unless logged_in?
-  #     end
-  #   end
+  def pseudo_score_randomizer
+    pseudo_score = Random.new
+    pseudo_score.rand(1..100)
+  end
 
 end
