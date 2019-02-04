@@ -1,57 +1,41 @@
-Project Title
-One Paragraph of project description goes here
+About Barry
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This is my Sinatra project for Flatiron School's Immersive Software Engineering program in which I am enrolled. It is also the beginning of a lifelong mission to revolutionize the way news is collected, created, and delivered through the responsible use of cognitive technologies.
 
-Prerequisites
-What things you need to install the software and how to install them
+I call this application Barry, which will become an artificial intelligence extended by a global network of AI journalists capable of producing 100% accurate, unbiased, and balanced news accessible to all people regardless of location, language, or literacy.
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+How to Get Started
 
-Say what the step will be
-
-Give the example
-And repeat
-
-until finished
-End with an example of getting some data out of the system or using it for a little demo
-
-Running the tests
-Explain how to run the automated tests for this system
-
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
-
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+1. Fork and clone this repository. (For personal use only. See license details below and LEGAL.md.)
+2. Run shotgun from your terminal to launch a local host.
+3. Go to localhost:9393 in your browser to load the app homepage
 
 Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+
+This is Barry Version 1.0.
 
 Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+
+Adam Dudley - Owner
 
 License
-This is NOT an open source project.
+
+No license. This is NOT an open source project. Instances of intellectual property infringement will be answered with an immediate legal response.
 Copyright ⓒ 2019 Barry, LLC. All rights reserved.
 
 Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+
+Heather Stearns
+Randy Russo
+All my Yoga teachers past and present
+Flatiron School, its founders, team, and especially its curriculum designers
+Cernan Bernardo
+Howard DeVennish
+Bill Gates
+Enoch Griffith
+Andrew Johnson
+Greg Mitchell
+Creators of the Web, Ruby, Sinatra, and all the gems/libraries I used in this project
+Creator of The Pomodoro Technique
+All the great teachers I've had and all the great tools I've used
+Anyone I've forgotten

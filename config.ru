@@ -6,11 +6,10 @@ end
 
 use Rack::MethodOverride
 
-# master controller
+# Mount master controller
 run ApplicationController
-# mount additional controllers
+# Mount additional controllers
 use ArticlesController
 use UsersController
 use SessionsController
 use RegistrationController
-# use Rack::Session::Cookie
