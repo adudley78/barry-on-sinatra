@@ -1,7 +1,6 @@
 <h1><%= @article.title %></h1>
 
-<p><%= @article.content %></p> # CHANGE TO CONTENT PREVIEW WITH LINK TO DISPLAY ALL CONTENT
-
+<p><%= @article.content %></p> 
 <!-- # INSERT PSEUDO-SCORE -- A RANDOMIZED PERCENTAGE BETWEEN 1..100 -->
 
 <form action="/articles/<%= @article.id %>/delete" method="POST">
