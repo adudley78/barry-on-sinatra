@@ -10,8 +10,8 @@ class ApplicationController < Sinatra::Base
   end
 
   # root/route, get the homepage
-  get "/" do
-    # render the homepage
+  get "/" do # this is a controller action (method) and a route (URL)
+    # render the #home page
     erb :home
   end
 
@@ -26,11 +26,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      # use memoization so not necessary to access database every time method is called
+      # use memoization so the database isn't accessed every time method is called
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
   end
 
+  # custom method to generate pseudo-score
   def pseudo_score_randomizer
     pseudo_score = Random.new
     pseudo_score.rand(1..100)

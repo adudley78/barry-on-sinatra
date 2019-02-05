@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   # username must be present on a User instance before it can be saved
   validates :username, presence: true
+  # add validation for proper email structure
 
  #  def slug
  #   username.downcase.gsub(" ","-")
