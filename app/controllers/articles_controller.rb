@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
+  # CRUD actions
+  # Sinatra maps these CRUD methods (lowercase) to HTTP verbs (uppercase)
 
   # get all the articles with the articles index action
+  #refactor using current_user method
   get '/articles' do
     if logged_in?
       @user = User.find_by(id: session[:user_id]) # access instance variable current_user
@@ -58,8 +61,9 @@ class ArticlesController < ApplicationController
   end
 
   get '/articles/:id/edit' do
-    if logged_in?
-      @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
+    # find out if the article belongs to the user currently logged in
+    if logged_in? && current_user == @article.user
 
       erb :'/articles/edit'
     else
@@ -67,6 +71,7 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # PATCH requests require Rack::MethodOverride middleware
   patch '/articles/:id' do
     if logged_in?
       @article = Article.find(params[:id])

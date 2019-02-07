@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  # add logged in validation
   get '/users/dashboard' do
     # if logged_in?
       @user = User.find(session[:user_id])

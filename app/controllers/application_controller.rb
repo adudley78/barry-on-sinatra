@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+    # implement secure session_secret
     set :session_secret, "password"
   end
 
@@ -35,6 +36,17 @@ class ApplicationController < Sinatra::Base
   def pseudo_score_randomizer
     pseudo_score = Random.new
     pseudo_score.rand(1..100)
+  end
+
+  # article search feature/form that user can type letters and search finds if letters are included in title
+  get '/articles_search' do
+    @articles = Article.all
+    (params[:search])
+    # .select / .include?
+    @user current_user
+    # match letters to titles
+    # return matches
+    erb :index
   end
 
 end

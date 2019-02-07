@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # clear the session, server- and client-side, to log the user out
   get '/sessions/logout' do
     session.clear
 
