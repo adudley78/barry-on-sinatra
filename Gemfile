@@ -15,8 +15,9 @@ gem 'dotenv'
 
 
 group :development do
-  gem 'tux'
   gem 'sqlite3'
+  gem 'shotgun'
+  gem 'tux'
   gem 'pry'
 end
 

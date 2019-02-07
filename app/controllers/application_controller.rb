@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     # implement secure session_secret
-    set :session_secret, "password"
+    set :session_secret, ENV.fetch('SESSION_SECRET')
   end
 
   # root/route, get the homepage
