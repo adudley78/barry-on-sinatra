@@ -10,7 +10,6 @@ gem 'thin'
 gem 'bcrypt'
 gem 'rails_12factor'
 gem 'foreman'
-gem 'shotgun'
 gem 'dotenv'
 
 
