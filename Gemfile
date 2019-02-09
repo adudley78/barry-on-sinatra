@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'dotenv'
 gem 'sinatra'
 gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -8,7 +9,6 @@ gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
 gem 'foreman'
-gem 'dotenv'
 
 group :production do
   gem 'pg', '~> 0.20'
@@ -16,7 +16,8 @@ group :production do
 end
 
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
+  # gem 'sqlite3'
   gem 'shotgun'
   gem 'tux'
   gem 'pry'

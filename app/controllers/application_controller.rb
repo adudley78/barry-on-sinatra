@@ -6,7 +6,6 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    # implement secure session_secret
     set :session_secret, ENV.fetch('SESSION_SECRET')
   end
 
@@ -38,10 +37,15 @@ class ApplicationController < Sinatra::Base
     pseudo_score.rand(1..100)
   end
 
-  get '/articles_search' do
-    @articles = Article.all(:title.include?(params[:search]))
+  get '/search' do
+    @articles = Article.all
+    if params[:search]
+      @articles = Article.search(params[:search])
 
-    erb :index
+      erb :'/articles/result'
+    # else
+
+    end
   end
 
 end

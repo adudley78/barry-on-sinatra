@@ -1,0 +1,11 @@
+<ul>
+  <% @articles.each do |article| %>
+    <br>
+    <li><%= article.id %>. <strong>Title: <%= article.title %></strong></li>
+    <br>
+    <li>Content: <%= article.content %></li>
+    <br>
+    <li>Pseudo-Score: <%= pseudo_score_randomizer %>%</li>
+    <br>
+  <% end %>
+</ul>
