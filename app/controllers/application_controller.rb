@@ -39,14 +39,14 @@ class ApplicationController < Sinatra::Base
   end
 
   # article search feature/form that user can type letters and search finds if letters are included in title
-  get '/articles_search' do
-    @articles = Article.all
-    (params[:search])
-    # .select / .include?
-    @user current_user
-    # match letters to titles
-    # return matches
-    erb :index
-  end
+  # get '/articles_search' do
+  #   @articles = Article.all
+  #   (params[:search])
+  #   # .select / .include?
+  #   @user current_user
+  #   # match letters to titles
+  #   # return matches
+  #   erb :index
+  # end
 
 end
