@@ -1,1 +1,2 @@
 .env
+./app/controllers/ai_controller.rb

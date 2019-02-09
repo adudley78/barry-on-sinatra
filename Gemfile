@@ -3,15 +3,17 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'pg', '0.20'
 gem 'rake'
 gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
-gem 'rails_12factor'
 gem 'foreman'
 gem 'dotenv'
 
+group :production do
+  gem 'pg', '~> 0.20'
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'sqlite3'
