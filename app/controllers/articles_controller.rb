@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # render the error page
   get '/articles/error' do
 
     erb :'/articles/error'
@@ -86,7 +87,7 @@ class ArticlesController < ApplicationController
   end
 
   delete '/articles/:id/delete' do
-    if logged_in?
+    if logged_in? && current_user == @article.user
       @article = Article.find(params[:id])
       @article.delete
 

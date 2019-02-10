@@ -4,30 +4,98 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Meet Barry</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="/bootstrap/css/style.css">
 
-    <!-- header logo -->
-    <a href="/">
-      <img src="/images/Logo - Website.png" alt="barry">
-    </a>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
 
-        <%= yield %>
+    <!-- <div class="wrapper"> -->
+    <div class="container">
 
-      <footer class="branding">
-        <small>&copy; 2019 <strong>Barry, LLC</strong>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/about">About</a></small>
-      </footer>
+      <div class="row">
+        <div class="col-sm-12">
+          <a href="/">
+            <img src="/images/Logo - Website.png" alt="barry">
+          </a>
+          Navigation Bar
+        </div>
+      </div>
 
-    </div><!-- Optional JavaScript -->
+      <%= yield %>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Featured Articles</h2>
+          <p>
+            Nunc sollicitudin felis in justo efficitur viverra.
+          </p>
+          <p>
+            Pellentesque aliquam porta lacus nec mattis.
+          </p>
+          <p>
+            Curabitur posuere nisl ac leo tempus vulputate.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8">
+          <h3>Explainer Video</h3>
+          <p>Explainer video</p>
+        </div>
+
+        <div class="col-sm-4">
+          <h3>Company News</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis nisl at ligula euismod ultrices quis at arcu. Nullam condimentum dolor a sapien mollis suscipit. Proin ornare erat dui. Donec eget porttitor quam. Praesent sit amet erat augue. Pellentesque ut libero a arcu sodales imperdiet fringilla non orci. Ut fringilla justo sed faucibus pulvinar. Fusce scelerisque mattis interdum. Fusce tempus purus risus, vitae pretium tortor fringilla sed. Praesent eleifend mi imperdiet nulla faucibus, vitae rhoncus ligula posuere. Phasellus aliquam interdum commodo. Nullam convallis augue a erat auctor accumsan. Nullam efficitur mi id congue dapibus. Aenean commodo condimentum auctor. Aliquam semper justo tellus, et placerat ex consequat eu. Cras lorem nisl, porttitor non lobortis sed, lacinia ac est.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-4">
+          <h3>Contact</h3>
+          <p>
+
+          </p>email: <a href="mailto:dudleyadam@gmail.com">dudleyadam@gmail.com</a><br>
+          phone: 407 504 2326
+        </div>
+
+        <div class="col-sm-4">
+          <h3>Links</h3>
+          <p>
+            <a href="#" target="_blank">Link 1</a><br>
+            <a href="#" target="_blank">Link 2</a><br>
+          </p>
+        </div>
+
+        <div class="col-sm-4">
+          <h3>Follow</h3>
+          <p>
+            <a href="#" target="_blank">LinkedIn</a>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          &copy; 2019 All Rights Reserved. A side project by <a href="https://www.linkedin.com/in/adamdudley/" target="_blank">Adam Dudley</a> written in Ruby on Sinatra.
+        </div>
+      </div>
+
+    </div> <!-- .container -->
+
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
