@@ -1,2 +1,2 @@
 public/* linguist-vendored
-app/views/layout linguist-vendored
+app/views/layout.erb linguist-vendored
